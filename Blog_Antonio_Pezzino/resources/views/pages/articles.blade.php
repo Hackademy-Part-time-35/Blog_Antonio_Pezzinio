@@ -20,13 +20,29 @@
     <h1 class="title">{{ $title }}</h1>
     @endif
 
+    @if ($articles)
+
+
+
     @foreach($articles as $index => $article)
         @if($article['visible'])
         <li>
-            <a href="{{ route('articles.show', $index) }}">{{ $index }} - {{ $article['title'] }}</a>
+            <a href="{{ route('articles.show', $index) }}">{{ $index }} - {{ $article['title'] . ' - ' . $article['category'] }}</a>
         </li>
+
         @endif
     @endforeach
+
+    @else
+
+
+    <p>Nessun articolo disponibile</p>
+
+
+    @endif
+
+
+
 </body>
 </html>
 

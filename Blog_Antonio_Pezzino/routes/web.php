@@ -15,11 +15,13 @@ Route::get('/articoli', function () {
     $titleIsVisible = true;
 
     $articles = [
-        0 => ['title' => 'Titolo articolo #1', 'visible' => true],
-        1 => ['title' => 'Titolo articolo #2', 'visible' => true],
-        2 => ['title' => 'Titolo articolo #3', 'visible' => true],
-        3 => ['title' => 'Titolo articolo #4', 'visible' => true],
+        0 => ['title' => 'Titolo articolo #1', 'category' => 'Sport #1', 'visible' => true],
+        1 => ['title' => 'Titolo articolo #2', 'category' => 'Sport #2', 'visible' => true],
+        2 => ['title' => 'Titolo articolo #3', 'category' => 'Sport #3', 'visible' => true],
+        3 => ['title' => 'Titolo articolo #4', 'category' => 'Sport #4', 'visible' => true],
     ];
+
+    //$articles = [];
 
     return view('pages.articles', [
         'titleIsVisible' => $titleIsVisible,
@@ -32,15 +34,11 @@ Route::get('/articoli', function () {
 Route::get('/articoli/{id}', function ($id = null) {
 
     $articles = [
-        0 => ['title' => 'Titolo articolo #1', 'visible' => true],
-        1 => ['title' => 'Titolo articolo #2', 'visible' => true],
-        2 => ['title' => 'Titolo articolo #3', 'visible' => true],
-        3 => ['title' => 'Titolo articolo #4', 'visible' => true],
+        0 => ['title' => 'Titolo articolo #1', 'category' => 'Sport #1', 'description' => '...', 'visible' => true],
+        1 => ['title' => 'Titolo articolo #2', 'category' => 'Sport #2', 'description' => '...', 'visible' => true],
+        2 => ['title' => 'Titolo articolo #3', 'category' => 'Sport #3', 'description' => '...', 'visible' => true],
+        3 => ['title' => 'Titolo articolo #4', 'category' => 'Sport #4', 'description' => '...', 'visible' => true],
     ];
-
-    if (! array_key_exists($id, $articles)) {
-        abort(404); // questa funzione restituisce una pagina di errore 404
-    }
 
     $article = $articles[$id];
 

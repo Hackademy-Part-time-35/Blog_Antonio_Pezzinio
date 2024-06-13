@@ -8,6 +8,12 @@
 </head>
 <body>
     <a href="{{ route('articles') }}">indietro</a>
+
     <h1>{{ $article['title'] }}</h1>
+
+    <h2>{{ $article['category'] }}</h2>
+
+    <p>{{ $article['description'] }}</p>
+
 </body>
 </html>
