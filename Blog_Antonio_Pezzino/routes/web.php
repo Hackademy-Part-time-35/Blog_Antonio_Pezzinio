@@ -3,27 +3,64 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+
     return view('welcome');
-});
 
-Route::get('/articles', function () {
+})->name('welcome');
 
-    $title = 'Pagina articoli';
+Route::get('/articoli', function () {
 
-    return view('articles', ['title' => $title]);
-});
+    $title = 'Articoli';
+
+    $titleIsVisible = true;
+
+    $articles = [
+        0 => ['title' => 'Titolo articolo #1', 'visible' => true],
+        1 => ['title' => 'Titolo articolo #2', 'visible' => true],
+        2 => ['title' => 'Titolo articolo #3', 'visible' => true],
+        3 => ['title' => 'Titolo articolo #4', 'visible' => true],
+    ];
+
+    return view('pages.articles', [
+        'titleIsVisible' => $titleIsVisible,
+        'title' => $title,
+        'articles' => $articles,
+    ]);
+
+})->name('articles');
+
+Route::get('/articoli/{id}', function ($id = null) {
+
+    $articles = [
+        0 => ['title' => 'Titolo articolo #1', 'visible' => true],
+        1 => ['title' => 'Titolo articolo #2', 'visible' => true],
+        2 => ['title' => 'Titolo articolo #3', 'visible' => true],
+        3 => ['title' => 'Titolo articolo #4', 'visible' => true],
+    ];
+
+    if (! array_key_exists($id, $articles)) {
+        abort(404); // questa funzione restituisce una pagina di errore 404
+    }
+
+    $article = $articles[$id];
+
+    return view('pages.article', ['article' => $article]);
+
+})->name('articles.show');
 
 Route::get('/contatti', function () {
 
-    $title = 'Pagina contatti';
+    return view('pages.contacts');
 
-    return view('contatti', ['title' => $title]);
-});
+})->name('contacts');
 
-Route::get('/whoweare', function () {
+Route::get('/chi-siamo', function () {
 
-    $title = 'Pagina chi siamo';
-    $paragraph = 'Benvenuti nella nostra pagina';
+    $description = 'Descrizione della pagina Chi Siamo';
 
-    return view('whoweare', ['title' => $title], ['paragraph' => $paragraph]);
-});
+    return view('pages.about-us', [
+        'title' => 'Chi Siamo',
+        'description' => $description,
+    ]);
+
+})->name('about-us');

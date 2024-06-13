@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Benvenuto</title>
+    <title>{{ $title }}</title>
 </head>
 <body>
     <nav>
@@ -13,9 +13,7 @@
         <a href="{{ route('about-us') }}">Chi Siamo</a>
         <a href="{{ route('contacts') }}">Contatti</a>
     </nav>
-
-    <h1>Benvenuto</h1>
+    <h1>{{ $title }}</h1>
+    <p>{{ $description }}</p>
 </body>
 </html>
-
-
