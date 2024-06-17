@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Http\Request;
+
 class PageController extends Controller
 {
     private $articles;
@@ -25,8 +27,6 @@ class PageController extends Controller
 
     public function articles()
     {
-
-        //$this->articles = [];
 
         $title = 'Pagina ARTICOLI';
 
