@@ -22,6 +22,8 @@ class PageController extends Controller
 
     public function welcome()
     {
+        // dd('$this->articles');
+
         return view('welcome');
     }
 
