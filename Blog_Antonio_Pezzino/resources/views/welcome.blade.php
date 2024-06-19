@@ -2,7 +2,7 @@
 
 
 
-<h1 class="color">benvenuto</h1>
+<h1 class="color">Benvenuto</h1>
 
 </x-layout>
 
