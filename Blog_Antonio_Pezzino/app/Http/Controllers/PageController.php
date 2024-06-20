@@ -49,13 +49,6 @@ class PageController extends Controller
         ]);
     }
 
-    public function contacts()
-    {
-        $title = 'Pagina CONTATTI';
-
-        return view('pages.contacts', ['title' => $title]);
-    }
-
     public function aboutUs()
     {
         $title = 'Pagina CHI SIAMO';
