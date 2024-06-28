@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+
 class PageController extends Controller
 {
     private $articles;
@@ -18,36 +20,48 @@ class PageController extends Controller
 
         ];
         */
+        $this->articles = \App\Models\Article::all();
 
     }
 
     public function welcome()
     {
-        // dd('$this->articles');
-
+        //dd($this->articles);
         return view('welcome');
     }
 
     public function articles()
     {
 
-        $title = 'Pagina ARTICOLI';
+        $articles = Article::all();
 
         return view('pages.articles', [
-            'title' => $title,
-            'articles' => $this->articles,
+            'articles' => $articles,
+            'title' => 'Articoli',
         ]);
 
+        /*
+        $this->articles = [];
+
+        $title = "Pagina ARTICOLI";
+        return view('pages.articles', [
+            'title'=> $title,
+            'articles'=> $this->articles
+        ]);
+        */
     }
 
     public function article($id)
     {
+        $article = Article::findOrFail($id);
 
+        /*
         $article = $this->articles[$id];
-
+        */
         return view('pages.article', [
             'article' => $article,
         ]);
+
     }
 
     public function aboutUs()
