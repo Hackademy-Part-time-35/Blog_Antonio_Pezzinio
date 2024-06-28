@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
-
 class PageController extends Controller
 {
     private $articles;
 
     public function __construct()
     {
+        /*
         $this->articles = [
 
             0 => ['title' => 'Titolo articolo #1', 'category' => 'Sport #1', 'description' => '...', 'visible' => true],
@@ -18,6 +17,8 @@ class PageController extends Controller
             3 => ['title' => 'Titolo articolo #4', 'category' => 'Sport #4', 'description' => '...', 'visible' => true],
 
         ];
+        */
+
     }
 
     public function welcome()

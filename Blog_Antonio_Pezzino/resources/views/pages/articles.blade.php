@@ -1,7 +1,11 @@
 <x-layout :title="$title">
 
 
-    <h1 class="color">{{$title}}</h1>
+    <h1 class="title_1">{{$title}}</h1>
+
+
+
+
 
 
 
@@ -12,13 +16,13 @@
 
     <div class="container">
         <div class="row g-3 mt-5">
-            @foreach($articles as $index => $article)
+            @foreach($articles as $article)
             @if($article['visible'])
             <div class="col-lg-3">
                 <x-card
                     :category="$article['category']"
                     :title="$article['title']"
-                    :route="route('articles.show', $index)"
+                    :route="route('articles.show', $article->id)"
                     />
             </div>
             @endif
@@ -38,5 +42,12 @@
 
 </div>
 </div>
+
+
+
+
+
+
+
 
 </x-layout>
