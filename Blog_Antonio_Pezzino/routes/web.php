@@ -16,5 +16,6 @@ Route::get('/chisiamo', [PageController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contatti', [ContactController::class, 'contacts'])->name('contacts');
 Route::post('/contatti/invia', [ContactController::class, 'submit'])->name('contacts.submit');
 
-// prova controller server
-Route::get('/articles/store', [ArticleController::class, 'store']);
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.store');
