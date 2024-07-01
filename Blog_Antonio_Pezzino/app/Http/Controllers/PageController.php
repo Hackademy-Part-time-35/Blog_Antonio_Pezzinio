@@ -20,7 +20,7 @@ class PageController extends Controller
 
         ];
         */
-        $this->articles = \App\Models\Article::all();
+        // $this->articles = \App\Models\Article::all();
 
     }
 

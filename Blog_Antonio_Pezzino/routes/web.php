@@ -18,4 +18,5 @@ Route::post('/contatti/invia', [ContactController::class, 'submit'])->name('cont
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+
 Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.store');

@@ -11,7 +11,11 @@
 
 
 
-
+    @if($article->image)
+    <div class="mt-2">
+        <img class="img-fluid" src="{{ ($article->image) }}" alt="{{ $article->title }}">
+    </div>
+    @endif
 
 
 
