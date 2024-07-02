@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
@@ -16,7 +17,14 @@ Route::get('/chisiamo', [PageController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contatti', [ContactController::class, 'contacts'])->name('contacts');
 Route::post('/contatti/invia', [ContactController::class, 'submit'])->name('contacts.submit');
 
-Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+Route::prefix('account')->middleware('auth')->group(function () {
 
-Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.store');
+    Route::get('/', [AccountController::class, 'index'])->name('account');
+
+    Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+    Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+    Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.store');
+
+});
+
+
