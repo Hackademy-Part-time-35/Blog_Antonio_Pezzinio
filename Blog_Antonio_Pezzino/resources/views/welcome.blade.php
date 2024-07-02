@@ -2,7 +2,9 @@
 
 
 
-<h1 class="color">Benvenuto</h1>
+<h1 class="title">{{ config('app.name') }}</h1>
+
+
 
 </x-layout>
 
