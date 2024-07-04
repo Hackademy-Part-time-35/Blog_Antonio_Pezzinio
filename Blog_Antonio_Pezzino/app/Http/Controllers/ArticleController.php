@@ -38,15 +38,31 @@ class ArticleController extends Controller
 
         return redirect()->back()->with(['success' => 'Articolo creato correttamente']);
 
-        /*
-        $article->title = 'Sono un articolo';
-        $article->category = 'Sport';
-        $article->description = '...';
-        $article->visible = true;
-        $article->body = 'Sono il contenuto';
 
-
-        $article->save();
-        */
     }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit', ['article' => $article, 'categories' => \App\Models\Category::all()]);
+    }
+
+    public function update(StoreArticleRequest $request, Article $article)
+    {
+        $article->update($request->all());
+
+        return redirect()->route('articles.index')->with(['success' => 'Articolo modificato correttamente']);
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        return redirect()->route('articles.index')->with(['success' => 'Articolo cancellato correttamente']);
+    }
+
+
+
+
+
+
 }
