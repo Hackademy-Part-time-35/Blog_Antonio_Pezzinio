@@ -24,6 +24,7 @@
                     <tr>
                         <th>#</th>
                         <th>Titolo</th>
+                        <th>Category</th>
                         <th></th>
                     </tr>
 
@@ -34,6 +35,8 @@
                     <tr>
                         <td>{{ $article->id }}</td>
                         <td>{{ $article->title }}</td>
+                        
+                        
                         <td class="text-end">
                             <a href="{{ route('articles.edit', $article) }}" class="btn btn-sm btn-secondary">modifica</a>
 
