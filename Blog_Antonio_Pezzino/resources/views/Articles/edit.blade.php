@@ -19,13 +19,17 @@
                                 @error('title') <span class="text-danger small">{{ $message }}</span> @enderror
                             </div>
                             <div class="col-12">
-                                <label for="category">Categoria *</label>
-                                <select name="category" id="category" class="form-control">
-                                    @foreach($categories as $category)
-                                    <option value="{{ $category->name }}" @selected($article->category === $category->name)>{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('category') <span class="text-danger small">{{ $message }}</span> @enderror
+                                <label for="categories">Categorie *</label>                              
+                                
+                                @foreach($categories as $category)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="categories[]"
+                                        @checked($article->categories->contains($category->id)) value="{{ $category->id }}">
+                                    <label class="form-check-label">
+                                        {{ $category->name }}
+                                    </label>
+                                </div>
+                                @endforeach
                             </div>
                             <div class="col-12">
                                 <label for="description">Descrizione *</label>

@@ -9,7 +9,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'category_id', 'description', 'body', 'visible'];
+    protected $fillable = ['title', 'user_id', 'description', 'body', 'visible'];
 
     public function user()
     {
@@ -18,7 +18,7 @@ class Article extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
 }
