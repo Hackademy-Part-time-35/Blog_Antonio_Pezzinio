@@ -20,6 +20,8 @@ class ArticleController extends Controller
     {
         return view('articles.create', ['categories' => \App\Models\Category::all()]);
     }
+
+    
     public function store(Request $request)
     {
 
@@ -94,5 +96,10 @@ class ArticleController extends Controller
 
         $article->delete();
         return redirect()->route('articles.index')->with(['success' => 'Articolo cancellato correttamente']);
+    }
+
+    public function articlesApi()
+    {
+        return Article::all();
     }
 }

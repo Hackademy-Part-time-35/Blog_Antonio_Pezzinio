@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
@@ -19,6 +20,12 @@ Route::get('/chisiamo', [PageController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contatti', [ContactController::class, 'contacts'])->name('contacts');
 Route::post('/contatti/invia', [ContactController::class, 'submit'])->name('contacts.submit');
 
+Route::get('/anime/generi', [AnimeController::class, 'genres'])->name('anime.genres');
+Route::get('/anime/genre/{genre_id}', [AnimeController::class, 'animeByGenre'])->name('anime.bygenres');
+Route::get('/anime/{anime_id}', [AnimeController::class, 'animeById'])->name('anime.byid');
+
+
+
 Route::prefix('account')->middleware('auth')->group(function () {
 
     Route::get('/', [AccountController::class, 'index'])->name('account');
@@ -33,10 +40,8 @@ Route::prefix('account')->middleware('auth')->group(function () {
     Route::delete('/articles/{article}/delete', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
     Route::resource('categories', CategoryController::class);
-
-
-    
-
 });
+
+
 
 
