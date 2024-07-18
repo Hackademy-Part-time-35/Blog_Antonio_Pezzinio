@@ -10,4 +10,9 @@ class AccountController extends Controller
     {
         return view('account.index');
     }
+
+    public function searchUsers()
+    {
+        return view('account.users-list');
+    }
 }
