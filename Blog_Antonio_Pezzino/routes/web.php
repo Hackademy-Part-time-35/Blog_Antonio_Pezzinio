@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\ArticleController;
@@ -46,4 +47,5 @@ Route::prefix('account')->middleware('auth')->group(function () {
 // Livewire
 Route::get('/counter', App\Livewire\Counter::class);
 Route::get('/elenco-utenti', [AccountController::class, 'searchUsers'])->name('search-users');
+Route::get('/admin/gestion-utenti', [AdminController::class, 'users'])->name('admin.users');
 
