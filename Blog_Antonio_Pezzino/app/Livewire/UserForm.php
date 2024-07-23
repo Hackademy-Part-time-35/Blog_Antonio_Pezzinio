@@ -9,14 +9,26 @@ use Livewire\Attributes\Validate;
 class UserForm extends Component
 {
     
-    #[Validate('required')]
+    //#[Validate('required')]
+    #[Validate]
     public $name;
 
-    #[Validate('required')]
+    //#[Validate('required')]
     public $email;
 
-    #[Validate('required')]
+    //#[Validate('required')]
     public $password;
+
+
+    public function rules()
+    {
+        return[
+            'name' => 'required|max:8',
+            'email' => 'required|email',
+            'password' => 'required',
+        ];
+
+    }
 
     public function submit()
     {
