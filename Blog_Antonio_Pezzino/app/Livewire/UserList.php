@@ -15,6 +15,11 @@ class UserList extends Component
         $this->dispatch('edit-user', $user_id);
     }
 
+    public function delete(User $user)
+    {
+        $user->delete();
+    }
+
     #[On('update-users-list')]
     public function render()
     {
