@@ -7,7 +7,7 @@
                 <livewire:user-form />
             </div>
             <div class="col-md-9">
-                ELENCO UTENTI
+                <livewire:user-list />
             </div>
         </div>
     </div>

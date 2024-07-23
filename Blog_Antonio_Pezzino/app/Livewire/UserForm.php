@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\On;
 
 class UserForm extends Component
 {
@@ -24,7 +25,7 @@ class UserForm extends Component
     {
         return[
             'name' => 'required|max:8',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
         ];
 
@@ -44,7 +45,18 @@ class UserForm extends Component
         session()->flash('success', 'Nuovo utente creato.');
 
         $this->resetForm();
+
+        $this->dispatch('update-users-list');
     }
+
+    #[On('edit-user')]
+    public function edit(User $user)
+    {
+        $this->userId = $user->id;
+        $this->name = $user->name;
+        $this->email = $user->email;
+    }
+
 
     public function resetForm()
     {
